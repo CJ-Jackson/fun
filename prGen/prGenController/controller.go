@@ -1,6 +1,8 @@
 package prGenController
 
 import (
+	"encoding/json"
+	"fun/prGen/prGenModel"
 	"fun/prGen/prGenView"
 
 	"github.com/cjtoolkit/ctx"
@@ -21,5 +23,7 @@ func (c PrGenController) Index(context ctx.Context) {
 }
 
 func (c PrGenController) PostIndex(context ctx.Context) {
-	//TODO: Implement
+	model := prGenModel.PrGenModel{}
+	json.NewDecoder(context.Request().Body).Decode(&model)
+	c.prGenView.ExecPostIndexView(context, model)
 }

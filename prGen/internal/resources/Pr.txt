@@ -1,0 +1,16 @@
+| **Q** | **A** |
+|---|---|
+| JIRA | {{ range .JiraClean }}**[{{ . }}](https://feelunique.atlassian.net/browse/{{ . }})** {{ end }} |
+| Linked PR | {{ range .LinkedPrClean }}**{{ . }}** {{ else }}_N/A_{{ end }} |
+| Related PR | {{ range .RelatedPrClean }}**{{ . }}** {{ else }}_N/A_{{ end }} |
+| CMS | {{ if .Cms }}:heavy_check_mark:{{ else }}:heavy_multiplication_x:{{ end }} |
+| DB | {{ if .Db }}:heavy_check_mark:{{ else }}:heavy_multiplication_x:{{ end }} |
+| Live Follow-up | {{ if .LiveFollowUp }}:heavy_check_mark:{{ else }}:heavy_multiplication_x:{{ end }} |
+| Parameters | {{ if .Parameters }}:heavy_check_mark:{{ else }}:heavy_multiplication_x:{{ end }} |
+| Requires cloudinary upload | {{ if .Cloudinary }}:heavy_check_mark:{{ else }}:heavy_multiplication_x:{{ end }} |
+
+# Description
+
+# How to test
+
+# QA
