@@ -1,0 +1,19 @@
+{
+  "name": "fun",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "bootstrap": "^4.4.1",
+    "node-sass": "^4.13.1",
+    "rollup": "^2.6.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependenciesMeta": {
+    "@fortawesome/fontawesome-free": {
+      "unplugged": true
+    },
+    "bootstrap": {
+      "unplugged": true
+    }
+  }
+}
