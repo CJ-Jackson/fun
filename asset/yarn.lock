@@ -491,7 +491,9 @@ fsevents@~2.1.2:
   dependencies:
     "@fortawesome/fontawesome-free": ^5.13.0
     bootstrap: ^4.4.1
+    jquery: ^3.5.0
     node-sass: ^4.13.1
+    popper.js: ^1.16.1
     rollup: ^2.6.1
     rollup-plugin-commonjs: ^10.1.0
     rollup-plugin-node-resolve: ^5.2.0
@@ -750,6 +752,13 @@ fsevents@~2.1.2:
   version: 0.1.2
   resolution: "isstream@npm:0.1.2"
   checksum: 2/8e6e5c4cf1823562db7035d2e7bac388412060fe9bc6727eca8c608def5aa57709165c51c2e68a2fce6ff0b64d79489501b84715060c5e8a477b87b6cbcd1eca
+  languageName: node
+  linkType: hard
+
+"jquery@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "jquery@npm:3.5.0"
+  checksum: 2/f293887214e527d4f8959bad75ca8058aa970554b67887c541308130fb0f5a97db065b7d4e4649de6ab4b26dd738f3ce888c0bd8382df4194e2e80cfe620f220
   languageName: node
   linkType: hard
 
@@ -1213,6 +1222,13 @@ fsevents@~2.1.2:
   version: 2.0.4
   resolution: "pinkie@npm:2.0.4"
   checksum: 2/2cb484c9da47b2f420fddffe7cbfeac950106a848343d147c2b2668d12b71aa3d09297bfe37ec32539a27c6dc7db414414f5ee166d6b2ca0d95f6dfe9dde60d7
+  languageName: node
+  linkType: hard
+
+"popper.js@npm:^1.16.1":
+  version: 1.16.1
+  resolution: "popper.js@npm:1.16.1"
+  checksum: 2/eb53806fb7680e31c7d1db096f95438a40a7cb869f7ee0e27100c0860f11583a0d322606c6073618e7fe8865f834ec36482901b547256d9a0cf2b22434bca75d
   languageName: node
   linkType: hard
 
