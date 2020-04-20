@@ -32,17 +32,17 @@ const assets = [
     "/images/icons/icon-512x512.png",
 ];
 
-self.addEventListener("install", installEvent => {
+self.addEventListener("install", function (installEvent) {
     installEvent.waitUntil(
-        caches.open(staticFun).then(cache => {
+        caches.open(staticFun).then(function (cache) {
             cache.addAll(assets);
         })
     );
 });
 
-self.addEventListener("fetch", fetchEvent => {
+self.addEventListener("fetch", function (fetchEvent) {
     fetchEvent.respondWith(
-        caches.match(fetchEvent.request).then(res => {
+        caches.match(fetchEvent.request).then(function (res) {
             return res || fetch(fetchEvent.request)
         })
     );
