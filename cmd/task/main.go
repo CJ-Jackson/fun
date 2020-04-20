@@ -22,7 +22,6 @@ func task() *taskforce.TaskForce {
 
 	tf.Register("yarn", func() {
 		tf.ExecCmd("./yarn")
-		tf.ExecCmd("./createLink")
 	})
 
 	tf.Register("clean", func() {
@@ -36,7 +35,7 @@ func task() *taskforce.TaskForce {
 
 	{
 		// Sass
-		var (
+		const (
 			dest = "live/stylesheets/styles.css"
 			src  = "dev/sass/styles.scss"
 		)
