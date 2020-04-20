@@ -24,4 +24,9 @@ func (b controllerBootKit) boot() {
 		context := ctx.GetContext(req)
 		b.controller.PostIndex(context)
 	})
+
+	b.router.GET(urlMap.Manifest, func(res http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+		context := ctx.GetContext(req)
+		b.controller.Manifest(context)
+	})
 }

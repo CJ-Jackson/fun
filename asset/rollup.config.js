@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
     input: {
         'main': 'dev/javascripts/main.js',
+        'serviceWorker': 'dev/javascripts/serviceWorker.js',
     },
     output: {
         dir: 'live/javascripts',

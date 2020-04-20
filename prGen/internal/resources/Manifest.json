@@ -1,0 +1,9 @@
+{
+  "name": "Feelunique P.R. Generator",
+  "short_name": "FUN",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}

@@ -27,3 +27,7 @@ func (c PrGenController) PostIndex(context ctx.Context) {
 	json.NewDecoder(context.Request().Body).Decode(&model)
 	c.prGenView.ExecPostIndexView(context, model)
 }
+
+func (c PrGenController) Manifest(context ctx.Context) {
+	c.prGenView.ExecManifest(context)
+}

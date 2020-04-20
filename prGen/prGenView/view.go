@@ -13,6 +13,7 @@ import (
 type PrGenView interface {
 	ExecIndexView(context ctx.Context)
 	ExecPostIndexView(context ctx.Context, model prGenModel.PrGenModel)
+	ExecManifest(context ctx.Context)
 }
 
 func GetPrGenView(context ctx.BackgroundContext) PrGenView {
@@ -24,14 +25,16 @@ func GetPrGenView(context ctx.BackgroundContext) PrGenView {
 
 func initPrGenView() PrGenView {
 	return pRGenView{
-		indexHtml: template.Must(template.New("Index").Parse(commonUtil.DecodeValueStr(internal.Index))),
-		prTxtTpl:  template2.Must(template2.New("PR").Parse(commonUtil.DecodeValueStr(internal.Pr))),
+		indexHtml:    template.Must(template.New("Index").Parse(commonUtil.DecodeValueStr(internal.Index))),
+		prTxtTpl:     template2.Must(template2.New("PR").Parse(commonUtil.DecodeValueStr(internal.Pr))),
+		manifestJson: commonUtil.DecodeValue(internal.Manifest),
 	}
 }
 
 type pRGenView struct {
-	indexHtml *template.Template
-	prTxtTpl  *template2.Template
+	indexHtml    *template.Template
+	prTxtTpl     *template2.Template
+	manifestJson []byte
 }
 
 func (p pRGenView) ExecIndexView(context ctx.Context) {
@@ -40,4 +43,10 @@ func (p pRGenView) ExecIndexView(context ctx.Context) {
 
 func (p pRGenView) ExecPostIndexView(context ctx.Context, model prGenModel.PrGenModel) {
 	p.prTxtTpl.Execute(context.ResponseWriter(), model)
+}
+
+func (p pRGenView) ExecManifest(context ctx.Context) {
+	res := context.ResponseWriter()
+	res.Header().Set("Content-Type", "application/json")
+	res.Write(p.manifestJson)
 }
