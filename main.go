@@ -32,7 +32,9 @@ func boot() (http.Handler, commonUtil.Param) {
 
 func createHandler(handler http.Handler) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
-		res.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
+		header := res.Header()
+		header.Set("Cache-Control", "no-cache, no-store, must-revalidate")
+		header.Set("Service-Worker-Allowed", "/")
 		req, _ = ctx.NewContext(res, req)
 		handler.ServeHTTP(res, req)
 	}

@@ -60,6 +60,7 @@ func task() *taskforce.TaskForce {
 	tf.Register("copy", func() {
 		copyFolder := taskUtil.CopyFolder(tf)
 
+		copyFolder("live/images", "lfs/images")
 		copyFolder("live/fonts", "link/fontawesome/webfonts")
 	})
 

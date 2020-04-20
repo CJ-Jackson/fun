@@ -8,4 +8,5 @@ const (
 	FontsFiles       = "/fonts/*filepath"
 	JavascriptsFiles = "/javascripts/*filepath"
 	StylesheetFiles  = "/stylesheets/*filepath"
+	ImageFiles       = "/images/*filepath"
 )

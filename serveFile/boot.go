@@ -28,4 +28,5 @@ func serveFiles(router *httprouter.Router, fs http.FileSystem) {
 	router.ServeFiles(urlMap.FontsFiles, zipfs.Prefix("/fonts", fs))
 	router.ServeFiles(urlMap.JavascriptsFiles, zipfs.Prefix("/javascripts", fs))
 	router.ServeFiles(urlMap.StylesheetFiles, zipfs.Prefix("/stylesheets", fs))
+	router.ServeFiles(urlMap.ImageFiles, zipfs.Prefix("/images", fs))
 }
