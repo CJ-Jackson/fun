@@ -1,4 +1,4 @@
-module fun
+module github.com/CJ-Jackson/fun
 
 go 1.14
 

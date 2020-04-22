@@ -1,11 +1,12 @@
 package prGenView
 
 import (
-	"fun/commonUtil"
-	"fun/prGen/internal"
-	"fun/prGen/prGenModel"
 	"html/template"
 	template2 "text/template"
+
+	"github.com/CJ-Jackson/fun/commonUtil"
+	"github.com/CJ-Jackson/fun/prGen/internal"
+	"github.com/CJ-Jackson/fun/prGen/prGenModel"
 
 	"github.com/cjtoolkit/ctx"
 )

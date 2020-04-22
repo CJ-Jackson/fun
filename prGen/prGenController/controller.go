@@ -2,8 +2,9 @@ package prGenController
 
 import (
 	"encoding/json"
-	"fun/prGen/prGenModel"
-	"fun/prGen/prGenView"
+
+	"github.com/CJ-Jackson/fun/prGen/prGenModel"
+	"github.com/CJ-Jackson/fun/prGen/prGenView"
 
 	"github.com/cjtoolkit/ctx"
 )

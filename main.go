@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"fun/commonUtil"
-	"fun/httpUtil"
-	"fun/prGen"
-	"fun/serveFile"
 	"log"
 	"net/http"
 
+	"github.com/CJ-Jackson/fun/commonUtil"
+	"github.com/CJ-Jackson/fun/httpUtil"
+	"github.com/CJ-Jackson/fun/prGen"
+	"github.com/CJ-Jackson/fun/serveFile"
 	"github.com/cjtoolkit/ctx"
 )
 

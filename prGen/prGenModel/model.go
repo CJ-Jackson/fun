@@ -1,6 +1,6 @@
 package prGenModel
 
-import "fun/commonUtil"
+import "github.com/CJ-Jackson/fun/commonUtil"
 
 type PrGenModel struct {
 	Jira         string

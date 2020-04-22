@@ -1,12 +1,12 @@
 package serveFile
 
 import (
-	"fun/commonUtil"
-	"fun/httpUtil"
-	"fun/urlMap"
 	"net/http"
 	"os"
 
+	"github.com/CJ-Jackson/fun/commonUtil"
+	"github.com/CJ-Jackson/fun/httpUtil"
+	"github.com/CJ-Jackson/fun/urlMap"
 	"github.com/cjtoolkit/ctx"
 	"github.com/cjtoolkit/zipfs"
 	"github.com/julienschmidt/httprouter"

@@ -1,8 +1,8 @@
 package prGen
 
 import (
-	"fun/httpUtil"
-	"fun/prGen/prGenController"
+	"github.com/CJ-Jackson/fun/httpUtil"
+	"github.com/CJ-Jackson/fun/prGen/prGenController"
 
 	"github.com/cjtoolkit/ctx"
 )

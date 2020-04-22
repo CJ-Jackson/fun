@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fun/taskUtil"
 	"os"
 
+	"github.com/CJ-Jackson/fun/taskUtil"
 	"github.com/cjtoolkit/taskforce"
 )
 

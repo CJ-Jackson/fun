@@ -1,10 +1,10 @@
 package prGen
 
 import (
-	"fun/prGen/prGenController"
-	"fun/urlMap"
 	"net/http"
 
+	"github.com/CJ-Jackson/fun/prGen/prGenController"
+	"github.com/CJ-Jackson/fun/urlMap"
 	"github.com/cjtoolkit/ctx"
 	"github.com/julienschmidt/httprouter"
 )
