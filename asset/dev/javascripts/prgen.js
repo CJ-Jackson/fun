@@ -44,18 +44,13 @@ function copyToClipBoard() {
     document.execCommand("copy");
 
     let button = document.getElementById("copy");
-    let icon = document.getElementById("copy-icon");
 
-    button.classList.remove("btn-secondary");
-    button.classList.add("btn-success");
-    icon.classList.remove("fa-clipboard");
-    icon.classList.add("fa-thumbs-up");
+    button.classList.remove("copy-to-clipboard-default");
+    button.classList.add("copy-to-clipboard-success");
 
     setTimeout(function() {
-        button.classList.remove("btn-success");
-        button.classList.add("btn-secondary");
-        icon.classList.remove("fa-thumbs-up");
-        icon.classList.add("fa-clipboard");
+        button.classList.remove("copy-to-clipboard-success");
+        button.classList.add("copy-to-clipboard-default");
     }, 3000);
 }
 

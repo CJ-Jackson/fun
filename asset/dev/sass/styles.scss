@@ -1,3 +1,19 @@
 @import "../../link/bootstrap/scss/bootstrap";
 
 @import "fa";
+
+.copy-to-clipboard-default {
+  @extend .btn, .btn-secondary, .btn-sm;
+
+  .icon {
+    @extend .far, .fa-clipboard;
+  }
+}
+
+.copy-to-clipboard-success {
+  @extend .btn, .btn-success, .btn-sm;
+
+  .icon {
+    @extend .far, .fa-thumbs-up;
+  }
+}
