@@ -1,7 +1,4 @@
 #!/bin/bash
-rootDir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
-cd $rootDir
-cd ..
-PATH="$(pwd)/nodeBin/node:$PATH"
-cd $rootDir
-../nodeBin/node/bin/node $@
+cd $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
+source ./updatePath
+node $@
