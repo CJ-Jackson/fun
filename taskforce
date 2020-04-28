@@ -1,5 +1,4 @@
 #!/bin/bash
 set -e
 cd $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )
-export GOCMD=$(./goVer)
-$GOCMD run cmd/task/main.go $@
+gogo run cmd/task/main.go $@
