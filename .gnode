@@ -1,0 +1,9 @@
+{
+  "version": "12.16.2",
+  "modules": [
+    {
+      "package": "yarn",
+      "version": "1.22.4"
+    }
+  ]
+}

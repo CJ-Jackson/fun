@@ -21,7 +21,7 @@ func task() *taskforce.TaskForce {
 	)
 
 	tf.Register("yarn", func() {
-		tf.ExecCmd("./yarn")
+		tf.ExecCmd("gnode", "yarn")
 		tf.ExecCmd("./createLink")
 	})
 
