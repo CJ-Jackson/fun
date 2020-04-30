@@ -9,67 +9,6 @@
 <body>
     <div class="container">
         <h1>P.R. Generator</h1>
-        <div class="row">
-            <div class="col-9">
-                <div class="form-group">
-                    <label for="jira">JIRA Task</label>
-                    <input type="email" class="form-control form-control-sm" id="jira" aria-describedby="jiraHelp"
-                        placeholder="and only the task number (including 'FU-')">
-                    <small id="jiraHelp" class="form-text text-muted">Seperate by comma (,)</small>
-                </div>
-                <div class="form-group">
-                    <label for="linkedPr">Linked P.R.</label>
-                    <input type="email" class="form-control form-control-sm" id="linkedPr" aria-describedby="linkedPrHelp">
-                    <small id="linkedPrHelp" class="form-text text-muted">Seperate by comma (,)</small>
-                </div>
-                <div class="form-group">
-                    <label for="relatedPr">Related P.R.</label>
-                    <input type="email" class="form-control form-control-sm" id="relatedPr" aria-describedby="relatedPrHelp">
-                    <small id="relatedPrHelp" class="form-text text-muted">Seperate by comma (,)</small>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="CMS" value="1">
-                    <label class="form-check-label" for="CMS">CMS</label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="DB" value="1">
-                    <label class="form-check-label" for="DB">DB</label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="LiveFollowUp" value="1">
-                    <label class="form-check-label" for="LiveFollowUp">Live Follow-up</label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="Parameters" value="1">
-                    <label class="form-check-label" for="Parameters">Parameters</label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="Cloudinary" value="1">
-                    <label class="form-check-label" for="Cloudinary">Requires cloudinary upload</label>
-                </div>
-
-                <span class="btn btn-primary btn-sm mt-2" id="genpr"><i class="fas fa-hammer"></i> Generate</span>
-                <span class="btn btn-secondary btn-sm mt-2" id="clear"><i class="fas fa-broom"></i> Clear Fields</span>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-9">
-                <h2>Output</h2>
-            </div>
-            <div class="col-3 text-right">
-                <span id="copy" class="copy-to-clipboard-default">
-                    <i class="icon"></i> Copy to Clipboard
-                </span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <textarea class="form-control" id="output" rows="10"></textarea>
-        </div>
-
         <div id="app"></div>
     </div>
 

@@ -1,4 +1,4 @@
-const staticFun = "fun-v1";
+const staticFun = "fun-v2";
 const assets = [
     "/",
     "/stylesheets/styles.css",

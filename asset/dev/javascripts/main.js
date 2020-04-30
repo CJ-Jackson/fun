@@ -1,6 +1,5 @@
 import './global';
 import 'bootstrap';
-import './prgen';
 
 import Vue from 'vue';
 import App from './App.vue'
@@ -20,7 +19,3 @@ let application = Vue.extend(App);
 let vm = new application({
     el: "#app"
 });
-
-vm.message = "Hello";
-
-console.log(application);

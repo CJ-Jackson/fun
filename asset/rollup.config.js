@@ -8,7 +8,6 @@ export default {
     input: {
         'main': 'dev/javascripts/main.js',
         'serviceWorker': 'dev/javascripts/serviceWorker.js',
-        // 'test': 'dev/javascripts/test.vue'
     },
     output: {
         dir: 'live/javascripts',

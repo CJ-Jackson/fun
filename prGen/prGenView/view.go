@@ -6,14 +6,12 @@ import (
 
 	"github.com/CJ-Jackson/fun/commonUtil"
 	"github.com/CJ-Jackson/fun/prGen/internal"
-	"github.com/CJ-Jackson/fun/prGen/prGenModel"
 
 	"github.com/cjtoolkit/ctx"
 )
 
 type PrGenView interface {
 	ExecIndexView(context ctx.Context)
-	ExecPostIndexView(context ctx.Context, model prGenModel.PrGenModel)
 	ExecManifest(context ctx.Context)
 }
 
@@ -40,10 +38,6 @@ type pRGenView struct {
 
 func (p pRGenView) ExecIndexView(context ctx.Context) {
 	p.indexHtml.Execute(context.ResponseWriter(), nil)
-}
-
-func (p pRGenView) ExecPostIndexView(context ctx.Context, model prGenModel.PrGenModel) {
-	p.prTxtTpl.Execute(context.ResponseWriter(), model)
 }
 
 func (p pRGenView) ExecManifest(context ctx.Context) {
