@@ -2,14 +2,19 @@
   "name": "fun",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "@rollup/plugin-replace": "^2.3.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "node-sass": "^4.13.1",
     "popper.js": "^1.16.1",
+    "postcss": "^7.0.27",
     "rollup": "^2.6.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.3.0"
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-vue": "^5.1.6",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependenciesMeta": {
     "@fortawesome/fontawesome-free": {
