@@ -20,7 +20,7 @@ export default {
         commonjs(),
         terser(),
         replace({
-            'process.env.NODE_ENV': JSON.stringify( 'production' )
+            'process.env.NODE_ENV': JSON.stringify( process.env.BUILD )
         })
     ],
     external: []

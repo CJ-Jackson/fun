@@ -18,6 +18,7 @@ func task() *taskforce.TaskForce {
 			tf.CheckError(os.Chdir(path + "/asset"))
 			return path
 		}()
+		devEnvironment = true
 	)
 
 	tf.Register("yarn", func() {
@@ -41,13 +42,7 @@ func task() *taskforce.TaskForce {
 			src  = "dev/sass/styles.scss"
 		)
 
-		tf.Register("sass:dev", func() {
-			args := []string{"--source-map", "true", "--source-map-contents", "true", "--precision", "8"}
-			args = append(args, src, dest)
-			yarnRun("node-sass", args...)
-		})
-
-		tf.Register("sass:prod", func() {
+		tf.Register("sass", func() {
 			args := []string{"--source-map", "true", "--source-map-contents", "true", "--precision", "8", "--output-style", "compressed"}
 			args = append(args, src, dest)
 			yarnRun("node-sass", args...)
@@ -55,7 +50,11 @@ func task() *taskforce.TaskForce {
 	}
 
 	tf.Register("rollup", func() {
-		yarnRun("rollup", "-c", "-m")
+		env := "BUILD:production"
+		if devEnvironment {
+			env = "BUILD:development"
+		}
+		yarnRun("rollup", "-c", "-m", "--environment", env)
 	})
 
 	tf.Register("copy", func() {
@@ -78,11 +77,12 @@ func task() *taskforce.TaskForce {
 	})
 
 	tf.Register("dev", func() {
-		tf.Run("yarn", "clean", "sass:dev", "rollup", "copy")
+		tf.Run("yarn", "clean", "sass", "rollup", "copy")
 	})
 
 	tf.Register("prod", func() {
-		tf.Run("yarn", "clean", "sass:prod", "rollup", "copy", "zip")
+		devEnvironment = false
+		tf.Run("yarn", "clean", "sass", "rollup", "copy", "zip")
 	})
 
 	tf.Register("quick:sass", func() {
@@ -90,7 +90,7 @@ func task() *taskforce.TaskForce {
 			defer recoverSilent()
 			tf.ExecCmd("rm", "-rf", "live/stylesheets")
 		}()
-		tf.Run("sass:dev")
+		tf.Run("sass")
 	})
 
 	tf.Register("quick:js", func() {
