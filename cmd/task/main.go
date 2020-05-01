@@ -64,11 +64,6 @@ func task() *taskforce.TaskForce {
 		copyFolder("live/fonts", "link/fontawesome/webfonts")
 	})
 
-	tf.Register("uglify:prod", func() {
-		yarnRun("uglifyjs", "live/javascripts/bundle.js",
-			"-o", "live/javascripts/bundle.js", "--source-map", "content='live/javascripts/bundle.js.map',url='bundle.js.map'", "--compress")
-	})
-
 	tf.Register("zip", func() {
 		defer chdir(path + "/asset/live")()
 		_ = os.Remove("../../asset.zip")
