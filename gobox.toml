@@ -1,3 +1,5 @@
+goCmd = "gogo"
+
 [[module]]
 repo = "github.com/cjtoolkit/embedder"
 tag = "v1.0.0"

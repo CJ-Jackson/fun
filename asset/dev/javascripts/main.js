@@ -1,6 +1,3 @@
-import './global';
-import 'bootstrap';
-
 import Vue from 'vue';
 import App from './App.vue'
 
