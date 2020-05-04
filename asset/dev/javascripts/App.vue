@@ -5,45 +5,41 @@
                 <div class="form-group">
                     <label for="jira">JIRA Task</label>
                     <input type="text" class="form-control form-control-sm" id="jira" aria-describedby="jiraHelp"
-                           placeholder="and only the task number (including 'FU-')" v-model="jira"
-                           v-on:change="jiraChange">
+                           placeholder="and only the task number (including 'FU-')" v-model="jira">
                     <small id="jiraHelp" class="form-text text-muted">Seperate by comma (,)</small>
                 </div>
                 <div class="form-group">
                     <label for="linkedPr">Linked P.R.</label>
                     <input type="text" class="form-control form-control-sm" id="linkedPr"
-                           aria-describedby="linkedPrHelp" v-model="linkedPr" v-on:change="linkedPrChange">
+                           aria-describedby="linkedPrHelp" v-model="linkedPr">
                     <small id="linkedPrHelp" class="form-text text-muted">Seperate by comma (,)</small>
                 </div>
                 <div class="form-group">
                     <label for="relatedPr">Related P.R.</label>
                     <input type="text" class="form-control form-control-sm" id="relatedPr"
-                           aria-describedby="relatedPrHelp" v-model="relatedPr" v-on:change="relatedPrPrChange">
+                           aria-describedby="relatedPrHelp" v-model="relatedPr">
                     <small id="relatedPrHelp" class="form-text text-muted">Seperate by comma (,)</small>
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="CMS" v-model="cms" v-on:change="csmChange">
+                    <input type="checkbox" class="form-check-input" id="CMS" v-model="cms">
                     <label class="form-check-label" for="CMS">CMS</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="DB" v-model="db" v-on:change="dbChange">
+                    <input type="checkbox" class="form-check-input" id="DB" v-model="db">
                     <label class="form-check-label" for="DB">DB</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="LiveFollowUp" v-model="liveFollowUp"
-                           v-on:change="liveFollowUpChange">
+                    <input type="checkbox" class="form-check-input" id="LiveFollowUp" v-model="liveFollowUp">
                     <label class="form-check-label" for="LiveFollowUp">Live Follow-up</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="Parameters" v-model="parameters"
-                           v-on:change="parametersChange">
+                    <input type="checkbox" class="form-check-input" id="Parameters" v-model="parameters">
                     <label class="form-check-label" for="Parameters">Parameters</label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="Cloudinary" v-model="cloudinary"
-                           v-on:change="cloudinaryChange">
+                    <input type="checkbox" class="form-check-input" id="Cloudinary" v-model="cloudinary">
                     <label class="form-check-label" for="Cloudinary">Requires cloudinary upload</label>
                 </div>
 
@@ -65,14 +61,14 @@
         <pre ref="text">
 | **Q** | **A** |
 |---|---|
-| JIRA | {{jiraFormatted}} |
-| Linked PR | {{linkedPrFormatted}} |
-| Related PR | {{relatedPrFormatted}} |
-| CMS | {{cmsText}} |
-| DB | {{dbText}} |
-| Live Follow-up | {{liveFollowUpText}} |
-| Parameters | {{parametersText}} |
-| Requires cloudinary upload | {{cloudinaryText}} |
+| JIRA | {{jira | jira}} |
+| Linked PR | {{linkedPr | link}} |
+| Related PR | {{relatedPr | link}} |
+| CMS | {{cms | check}} |
+| DB | {{db | check}} |
+| Live Follow-up | {{liveFollowUp | check}} |
+| Parameters | {{parameters | check}} |
+| Requires cloudinary upload | {{cloudinary | check}} |
 
 # Description
 
@@ -84,30 +80,25 @@
 </template>
 
 <script type="module">
-    function jiraFormat(str) {
+    function baseFormat(str, closure) {
         str = str.trim()
         if (str === '') {
             return '_N/A_';
         }
         let strArray = str.split(',');
         for (let i = 0; i < strArray.length; i++) {
-            let v = strArray[i].trim();
-            strArray[i] = '**[' + v + '](https://feelunique.atlassian.net/browse/' + v + ')**';
+            strArray[i] = closure(strArray[i].trim());
         }
         return strArray.join(' ');
     }
 
+    function jiraFormat(str) {
+        return baseFormat(str,
+            function(v) { return '**[' + v + '](https://feelunique.atlassian.net/browse/' + v + ')**'; })
+    }
+
     function format(str) {
-        str = str.trim();
-        if (str === '') {
-            return '_N/A_';
-        }
-        let strArray = str.split(',');
-        for (let i = 0; i < strArray.length; i++) {
-            let v = strArray[i].trim();
-            strArray[i] = '**' + v + '**';
-        }
-        return strArray.join(' ');
+        return baseFormat(str, function(v) { return '**' + v + '**'; })
     }
 
     function check(b) {
@@ -121,66 +112,26 @@
         data() {
             return {
                 jira: '',
-                jiraFormatted: '_N/A_',
                 linkedPr: '',
-                linkedPrFormatted: '_N/A_',
                 relatedPr: '',
-                relatedPrFormatted: '_N/A_',
                 cms: false,
-                cmsText: ':heavy_multiplication_x:',
                 db: false,
-                dbText: ':heavy_multiplication_x:',
                 liveFollowUp: false,
-                liveFollowUpText: ':heavy_multiplication_x:',
                 parameters: false,
-                parametersText: ':heavy_multiplication_x:',
                 cloudinary: false,
-                cloudinaryText: ':heavy_multiplication_x:',
                 clipBoardStatus: 'copy-to-clipboard-default'
             }
         },
         methods: {
-            jiraChange() {
-                this.jiraFormatted = jiraFormat(this.jira);
-            },
-            linkedPrChange() {
-                this.linkedPrFormatted = format(this.linkedPr);
-            },
-            relatedPrPrChange() {
-                this.relatedPrFormatted = format(this.relatedPr);
-            },
-            csmChange() {
-                this.cmsText = check(this.cms);
-            },
-            dbChange() {
-                this.dbText = check(this.db);
-            },
-            liveFollowUpChange() {
-                this.liveFollowUpText = check(this.liveFollowUp);
-            },
-            parametersChange() {
-                this.parametersText = check(this.parameters);
-            },
-            cloudinaryChange() {
-                this.cloudinaryText = check(this.cloudinary);
-            },
             clearField() {
                 this.jira = "";
-                this.jiraFormatted = "_N/A_"
                 this.linkedPr = "";
-                this.linkedPrFormatted = "_N/A_";
                 this.relatedPr = "";
-                this.relatedPrFormatted = "_N/A_";
                 this.cms = false;
-                this.cmsText = ':heavy_multiplication_x:';
                 this.db = false;
-                this.dbText = ':heavy_multiplication_x:';
                 this.liveFollowUp = false;
-                this.liveFollowUpText = ':heavy_multiplication_x:';
                 this.parameters = false;
-                this.parametersText = ':heavy_multiplication_x:';
                 this.cloudinary = false;
-                this.cloudinaryText = ':heavy_multiplication_x:';
             },
             clipboard() {
                 navigator.clipboard.writeText(this.$refs.text.innerHTML.trim());
@@ -189,6 +140,17 @@
                 setTimeout(function () {
                     copy.clipBoardStatus = 'copy-to-clipboard-default';
                 }, 3000);
+            }
+        },
+        filters: {
+            jira(value) {
+                return jiraFormat(value);
+            },
+            link(value) {
+                return format(value);
+            },
+            check(value) {
+                return check(value);
             }
         }
     }
