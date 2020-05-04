@@ -94,11 +94,11 @@
 
     function jiraFormat(str) {
         return baseFormat(str,
-            function(v) { return '**[' + v + '](https://feelunique.atlassian.net/browse/' + v + ')**'; })
+            function(v) { return '**[' + v + '](https://feelunique.atlassian.net/browse/' + v + ')**'; });
     }
 
     function format(str) {
-        return baseFormat(str, function(v) { return '**' + v + '**'; })
+        return baseFormat(str, function(v) { return '**' + v + '**'; });
     }
 
     function check(b) {
