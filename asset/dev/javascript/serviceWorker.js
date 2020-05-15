@@ -2,7 +2,7 @@ const staticFun = "fun-v2.1";
 const assets = [
     "/",
     "/stylesheets/styles.css",
-    "/javascripts/main.js",
+    "/javascript/main.js",
 
     // Fonts
     "/fonts/fa-brands-400.eot",

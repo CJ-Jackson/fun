@@ -9,11 +9,10 @@ import (
 
 func task() *taskforce.TaskForce {
 	var (
-		tf            = taskforce.InitTaskForce()
-		chdir         = taskUtil.Chdir(tf)
-		recoverSilent = func() { recover() }
-		yarnRun       = taskUtil.YarnRun(tf)
-		path          = func() string {
+		tf      = taskforce.InitTaskForce()
+		chdir   = taskUtil.Chdir(tf)
+		yarnRun = taskUtil.YarnRun(tf)
+		path    = func() string {
 			path := taskUtil.GetEnv().DirPath()
 			tf.CheckError(os.Chdir(path + "/asset"))
 			return path
@@ -27,11 +26,7 @@ func task() *taskforce.TaskForce {
 	})
 
 	tf.Register("clean", func() {
-		func() {
-			defer recoverSilent()
-			tf.ExecCmd("rm", "-rf", "live")
-		}()
-
+		os.RemoveAll("live")
 		os.Mkdir("live", 0755)
 	})
 
@@ -81,18 +76,12 @@ func task() *taskforce.TaskForce {
 	})
 
 	tf.Register("quick:sass", func() {
-		func() {
-			defer recoverSilent()
-			tf.ExecCmd("rm", "-rf", "live/stylesheets")
-		}()
+		os.RemoveAll("live/stylesheets")
 		tf.Run("sass")
 	})
 
 	tf.Register("quick:js", func() {
-		func() {
-			defer recoverSilent()
-			tf.ExecCmd("rm", "-rf", "live/javascripts")
-		}()
+		os.RemoveAll("live/javascript")
 		tf.Run("rollup")
 	})
 

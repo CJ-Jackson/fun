@@ -6,11 +6,11 @@ import replace from '@rollup/plugin-replace';
 
 export default {
     input: {
-        'main': 'dev/javascripts/main.js',
-        'serviceWorker': 'dev/javascripts/serviceWorker.js',
+        'main': 'dev/javascript/main.js',
+        'serviceWorker': 'dev/javascript/serviceWorker.js',
     },
     output: {
-        dir: 'live/javascripts',
+        dir: 'live/javascript',
         format: 'es',
         globals: [],
     },

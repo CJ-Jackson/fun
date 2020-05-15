@@ -5,8 +5,8 @@ const (
 
 	Manifest = "/manifest.json"
 
-	FontsFiles       = "/fonts/*filepath"
-	JavascriptsFiles = "/javascripts/*filepath"
-	StylesheetFiles  = "/stylesheets/*filepath"
-	ImageFiles       = "/images/*filepath"
+	FontsFiles      = "/fonts/*filepath"
+	JavascriptFiles = "/javascript/*filepath"
+	StylesheetFiles = "/stylesheets/*filepath"
+	ImageFiles      = "/images/*filepath"
 )

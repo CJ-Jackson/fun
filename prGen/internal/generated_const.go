@@ -8,7 +8,7 @@ const (
 ffPwfH942z9CqH2yG708kCh/GOSMi8Hk7QYAQPdcCVygIlwNvh52t3e4RjXWxHbHnM45fp0Z9t1L
 B0+cuVAdilbtoB2nmD+hcDIodU4sgbkihMJHg+pqyao7J4L/qj3leGS5Fn+M7iRDRlB2o1WD1++D
 n9cBHydwiUQMuiFXipnLOn7Jw9b+RQ/bX/nSj94gjSNarXyc1uEmmxZX4lihziMb7Ad/TowgxRlU
-J5qoxaJ6irk7ybLTrAW5sWp1+Y/vAAAA///KLLQKnwEAAA==`
+J5qoxaqnmLuTLDPNWYgbqlaX7/gOAAD//7iS0uOeAQAA`
 	// Source: resources/Manifest.json
 	Manifest = `H4sIAAAAAAAC/6yTT0/DIBjG7/0Ub/A6N2Ht1u4D6M0Yk52MabDDtZFCBZowl313w5/oLkQPcCDp
 83t4f2kbzgUAEnRkaAfonjG+F8PnzOBp+QwPTDBFjVRo4Vq6l8q0P939Y4hNz0bWdpJL5fKbO78C

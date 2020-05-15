@@ -4,7 +4,7 @@ import App from './App.vue'
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
         navigator.serviceWorker
-            .register("/javascripts/serviceWorker.js", {
+            .register("/javascript/serviceWorker.js", {
                 scope: '/'
             })
             .then(function (res) {
