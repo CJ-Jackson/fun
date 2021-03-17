@@ -38,9 +38,9 @@ func task() *taskforce.TaskForce {
 		)
 
 		tf.Register("sass", func() {
-			args := []string{"--source-map", "true", "--source-map-contents", "true", "--precision", "8", "--output-style", "compressed"}
+			args := []string{"--source-map", "--embed-sources", "--style=compressed"}
 			args = append(args, src, dest)
-			yarnRun("node-sass", args...)
+			yarnRun("sass", args...)
 		})
 	}
 
